@@ -12,7 +12,9 @@ if [ -n "${BORG_GID}" ]; then
 fi
 
 if [ ! -z ${BORG_AUTHORIZED_KEYS+x} ]; then
-    echo -e $BORG_AUTHORIZED_KEYS > /home/borg/.ssh/authorized_keys
+    echo -e $BORG_AUTHORIZED_KEYS | \
+        awk '{print "command=\"borg serve --restrict-to-path /var/backups/borg\",restrict " $0}' \
+        > /home/borg/.ssh/authorized_keys
     chown borg.borg /home/borg/.ssh/authorized_keys
     chmod og-rwx /home/borg/.ssh/authorized_keys
 fi
