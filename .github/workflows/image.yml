@@ -52,6 +52,6 @@ jobs:
           pull: true
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/docker-borg-backup:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/docker-borg-backup:1.1.14
+            ${{ secrets.DOCKERHUB_USERNAME }}/docker-borg-backup:1.1.15
           build-args: |
-            BORG_VERSION=1.1.14
+            BORG_VERSION=1.1.15

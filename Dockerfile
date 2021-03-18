@@ -1,6 +1,6 @@
 FROM debian:10-slim
 
-ARG BORG_VERSION=1.1.14
+ARG BORG_VERSION=1.1.15
 
 RUN set -x \
     && apt-get update \
